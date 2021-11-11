@@ -21,6 +21,8 @@
         var pointsPerClick = 1;
         var smileyIndex = 0;
         const nullPoeng = 0;
+        var juksemaker = 0;
+        var juks = '';
 
         // controller
         function doClick() {
@@ -44,6 +46,33 @@
             points -= minusEn;
             updateView();
         }
+        function jukseKnapp() {
+            if (points >0) 
+            points *= 10; 
+            pointsPerClick *= 10;
+            juksemaker++;
+            if (juksemaker >=1)
+            juks = `<h1>Juksemaker! 👿 </h1>`
+            updateView();
+            }
+
+            function ikkeJuks() {
+                points = 0; 
+                pointsPerClick = 1;
+                juksemaker = 0;
+                if (juksemaker <1)
+                juks = `<h1> </h1>`
+                updateView();
+                }
+
+            function uboost() {
+            points *= 1000;
+            pointsPerClick *=1000;
+            juksemaker++;
+            if (juksemaker >=1)
+            juks = `<h1>👿 Juksemaker! 👿 </h1>`
+            updateView();    
+                }    
 
         // view
         updateView();
@@ -56,7 +85,11 @@
                 <br>
                 <button onclick="nullUt(1)">null ut poengene</button>
                 <button onclick="minusPoeng(1)">Minus 1 poeng</button>
-                <button onclick="y">Knapp we</button>
+                <button onclick="ikkeJuks()">angre på juksingen</button>
+                <br>
+                <button onclick="jukseKnapp()">Vil du jukse litt?</button>
+                <button onclick="uboost()">ULTRABOOST</button>
+                <h1>${juks}</h1>
             `;
         }
 
