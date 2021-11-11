@@ -20,6 +20,7 @@
         var points = 0;
         var pointsPerClick = 1;
         var smileyIndex = 0;
+        const nullPoeng = 0;
 
         // controller
         function doClick() {
@@ -34,6 +35,15 @@
             pointsPerClick++;
             updateView();
         }
+        function nullUt(nullen) {
+            if (points < nullen) return;
+            points = nullPoeng;
+            updateView();
+        }
+        function minusPoeng(minusEn) {
+            points -= minusEn;
+            updateView();
+        }
 
         // view
         updateView();
@@ -44,9 +54,9 @@
                 <div id="pointsInfo">${points}</div>
                 <button onclick="buyUpgrade(10)">Kjøp oppgradering (10 poeng)</button>
                 <br>
-                <button onclick="buyUpgrade(10)">Kjøp oppgradering (10 poeng)</button>
-                <button onclick="buyUpgrade(10)">Kjøp oppgradering (10 poeng)</button>
-                <button onclick="buyUpgrade(10)">Kjøp oppgradering (10 poeng)</button>
+                <button onclick="nullUt(1)">null ut poengene</button>
+                <button onclick="minusPoeng(1)">Minus 1 poeng</button>
+                <button onclick="y">Knapp we</button>
             `;
         }
 
@@ -54,18 +64,20 @@
         function getSmiley(aSmileyIndex) {
             if(aSmileyIndex == 0) return '😀';
             if(aSmileyIndex == 1) return '😁';
+            if(aSmileyIndex == 2) return '😎';
+            if(aSmileyIndex == 3) return '😍';
             return '';
         }
 
         function getNextSmileyIndex(aSmileyIndex) {
-            const maxSmileyIndex = 1;
+            const maxSmileyIndex = 3;
             aSmileyIndex++;
             if (aSmileyIndex > maxSmileyIndex) {
                 aSmileyIndex = 0;
             }
             return aSmileyIndex;
         }
-//😍😂😎
+//😍😎
     </script>
     
 </body>
