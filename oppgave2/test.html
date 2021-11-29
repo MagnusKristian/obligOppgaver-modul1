@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.17.2.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.17.2.js"></script>
+<script src="script.js"></script>
+  
+  <script>
+    function updateView(){
+
+    }
+      var points = 0;
+      var pointsPerClick = 1;
+      var smileyIndex = 0;
+      const nullPoeng = 0;
+      var juksemaker = 0;
+      var juks = '';
+
+    QUnit.module('modul 1', function() {
+      QUnit.test('test 1', function(assert) {
+        points = 11;
+        pointsPerClick = 3;
+        doClick()
+       var faktisk = points;
+       var forventet = 14;
+
+       assert.equal(points, forventet, ' dette er din egen kommentar' )
+      });
+      
+    });
+
+    QUnit.module('add2', function() {
+      QUnit.test('two numbers', function(assert) {
+       
+      });
+    });
+  </script>
+</body>
