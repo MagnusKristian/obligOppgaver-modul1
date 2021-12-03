@@ -11,6 +11,7 @@
         }
     </style>
     <script src="script.js"></script>
+    <script src="model.js"></script>
 </head>
 
 <body>
@@ -44,12 +45,12 @@
 
 
         // model
-        var points = 0;
-        var pointsPerClick = 1;
-        var smileyIndex = 0;
-        const nullPoeng = 0;
-        var juksemaker = 0;
-        var juks = '';
+        // var points = 0;
+        // var pointsPerClick = 1;
+        // var smileyIndex = 0;
+        // const nullPoeng = 0;
+        // var juksemaker = 0;
+        // var juks = '';
 
         // controller
         
@@ -57,10 +58,10 @@
         // view
         updateView();
         function updateView() {
-            var smiley = getSmiley(smileyIndex);
+            var smiley = model[0].smileyIndex;
             document.getElementById('app').innerHTML = `
                 <div id="image" onclick="doClick()">${smiley}</div>
-                <div id="pointsInfo">${points}</div>
+                <div id="pointsInfo">${model[0].points}</div>
                 <button onclick="buyUpgrade(10)">Kjøp oppgradering (10 poeng)</button>
                 <br>
                 <button onclick="nullUt(1)">null ut poengene</button>
@@ -69,12 +70,12 @@
                 <br>
                 <button onclick="jukseKnapp()">Vil du jukse litt?</button>
                 <button onclick="uboost()">ULTRABOOST</button>
-                <h1>${juks}</h1>
+                <h1>${model[0].juks}</h1>
             `;
         }
 
         // hjelpefunksjoner
-   
+        
 //😍😎
     </script>
     

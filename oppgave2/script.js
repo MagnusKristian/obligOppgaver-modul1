@@ -1,65 +1,65 @@
 function doClick() {
-    points += pointsPerClick;
-    smileyIndex = getNextSmileyIndex(smileyIndex);
+    model[0].points += model[0].pointsPerClick;
+    model[0].smileyIndex = getNextSmileyIndex(model[0].smileyIndex);
     updateView();
 }
 
 function buyUpgrade(upgradeCost) {
-    if (points < upgradeCost) return;
-    points -= upgradeCost;
-    pointsPerClick++;
+    if (model[0].points < upgradeCost) return;
+    model[0].points -= upgradeCost;
+    model[0].pointsPerClick++;
     updateView();
 }
 function nullUt(nullen) {
-    if (points < nullen) return;
-    points = nullPoeng;
+    if (model[0].points < nullen) return;
+    model[0].points = model[1].nullPoeng;
     updateView();
 }
 function minusPoeng(minusEn) {
-    points -= minusEn;
+    model[0].points -= minusEn;
     updateView();
 }
 function jukseKnapp() {
-    if (points >0) 
-    points *= 10; 
-    pointsPerClick *= 10;
-    juksemaker++;
-    if (juksemaker >=1)
-    juks = `<h1>Juksemaker! 👿 </h1>`
+    if (model[0].points >0) 
+    model[0].points *= 10; 
+    model[0].pointsPerClick *= 10;
+    model[0].juksemaker++;
+    if (model[0].juksemaker >=1)
+    model[0].juks = `<h1>Juksemaker! 👿 </h1>`
     updateView();
     }
 
     function ikkeJuks() {
-        points = 0; 
-        pointsPerClick = 1;
-        juksemaker = 0;
-        if (juksemaker <1)
-        juks = `<h1> </h1>`
+        model[0].points = 0; 
+        model[0].pointsPerClick = 1;
+        model[0].juksemaker = 0;
+        if (model[0].juksemaker <1)
+        model[0].juks = `<h1> </h1>`
         updateView();
         }
 
     function uboost() {
-    points *= 1000;
-    pointsPerClick *=1000;
-    juksemaker++;
-    if (juksemaker >=1)
-    juks = `<h1>👿 Juksemaker! 👿 </h1>`
+        model[0].points *= 1000;
+        model[0].pointsPerClick *=1000;
+        model[0].juksemaker++;
+    if (model[0].juksemaker >=1)
+    model[0].juks = `<h1>👿 Juksemaker! 👿 </h1>`
     updateView();    
         }    
 
-        function getSmiley(aSmileyIndex) {
-            if(aSmileyIndex == 0) return '😀';
-            if(aSmileyIndex == 1) return '😁';
-            if(aSmileyIndex == 2) return '😎';
-            if(aSmileyIndex == 3) return '😍';
-            return '';
+        function getSmiley() {
+            if(model[0].smileyIndex == 0){smiley = '😀'}
+            if(model[0].smileyIndex == 1){smiley = '😁'} 
+            if(model[0].smileyIndex == 2){smiley = '😎'} 
+            if(model[0].smileyIndex == 3){smiley = '😍'} 
+            updateView();  
         }
 
-        function getNextSmileyIndex(aSmileyIndex) {
+        function getNextSmileyIndex() {
             const maxSmileyIndex = 3;
-            aSmileyIndex++;
-            if (aSmileyIndex > maxSmileyIndex) {
-                aSmileyIndex = 0;
+            model[0].smileyIndex++;
+            if (model[0].smileyIndex> maxSmileyIndex) {
+                model[0].smileyIndex = 0;
             }
-            return aSmileyIndex;
+            return model[0].smileyIndex;
         }
